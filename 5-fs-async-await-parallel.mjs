@@ -1,0 +1,11 @@
+// Utilizando asincronía de forma paralela, es decir, la función leerá ambos archivos y después de que se ejecute el código, mostrará los contenidos
+
+import { readFile } from 'node:fs/promises'
+
+Promise.all([
+  readFile('./archivo.txt', 'utf-8'),
+  readFile('./archivo2.txt', 'utf-8')
+]).then(([text, text2]) => {
+  console.log('primer texto: ', text)
+  console.log('segundo texto: ', text2)
+})
